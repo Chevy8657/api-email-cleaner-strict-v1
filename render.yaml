@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: api-email-cleaner-strict-v1
+    env: node
+    plan: free
+    region: virginia
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
