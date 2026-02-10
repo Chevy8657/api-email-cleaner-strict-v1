@@ -1,0 +1,53 @@
+# Email Sanitizer (Strict v1)
+
+## Description
+
+Sanitizes an email string by:
+
+- trimming whitespace
+- forcing lowercase
+- removing whitespace
+- removing non-email-safe characters
+
+Stateless and deterministic.
+
+---
+
+## Endpoint
+
+POST /v1/sanitize-email
+
+---
+
+## Payload
+
+{
+  "input": "  Rick+Test@Example.COM  "
+}
+
+---
+
+## Response
+
+{
+  "output": "rick+test@example.com"
+}
+
+---
+
+## Health
+
+GET /health
+
+---
+
+## Non-Expansion Clause
+
+This API sanitizes characters only.
+
+It will never:
+
+- validate deliverability
+- check MX records
+- fix malformed emails
+- expand scope
